@@ -44,17 +44,87 @@ body{
 /* Intro visible por defecto */
 .intro{
   min-height:100svh;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   padding:24px;
-  animation:fade .6s ease both;
+  text-align:center;
+  position: relative;
 }
-.intro h1{ font-family:'Dancing Script',cursive; font-size:clamp(2.2rem,6vw,3.6rem); margin:0 0 12px }
-.intro p{ margin:0 0 24px; font-size:1.15rem; opacity:.9 }
+
+/* Título principal */
+.intro h1{
+  font-family:'Dancing Script', cursive;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  animation: fadeUp 1s ease both;
+}
+
+/* Subtítulo */
+.intro h2{
+  font-family:'Crimson Text', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 400;
+  margin: 10px 0 20px;
+  opacity: .75;
+  letter-spacing: 1px;
+  animation: fadeUp 1.4s ease both;
+}
+
+/* Línea decorativa tipo libro */
+.intro h2::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:2px;
+  background:linear-gradient(to right, transparent, var(--vino), transparent);
+  margin:12px auto 0;
+  opacity:.5;
+}
+
+/* Dedicatoria */
+.intro p{
+  margin:0 0 28px;
+  font-size:1.1rem;
+  opacity:.8;
+  font-style: italic;
+  animation: fadeUp 1.8s ease both;
+}
+
+/* Botón elegante */
 .btn{
-  cursor:pointer; padding:14px 28px; border:none; border-radius:999px;
+  cursor:pointer;
+  padding:14px 32px;
+  border:none;
+  border-radius:999px;
   background:linear-gradient(135deg,var(--vino),var(--vino-osc));
-  color:#fff; font-weight:700; font-size:1.05rem; text-decoration:none;
-  box-shadow:0 8px 20px rgba(92,42,42,.25);
+  color:#fff;
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:.5px;
+  box-shadow:0 10px 25px rgba(92,42,42,.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fadeUp 2.2s ease both;
+}
+
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow:0 14px 30px rgba(92,42,42,.35);
+}
+
+/* Animación suave */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
 }
 
 /* Poema oculto inicialmente; se muestra con .show */
